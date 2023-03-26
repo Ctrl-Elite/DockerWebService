@@ -30,7 +30,7 @@ You can use the `DOCKER_HOST` and docker context to deploy this container to any
 ```
 docker-compose -H "ssh://my-user@remote-host-ip" up -d
 ```
-This command will deploy the container to the provided remote server.
+These command will deploy the container to the provided remote server. Note that we will need to authenticate with the remote server to access it for deployment. The easiest way will be to use passwordless login using ssh. Generate and store a public key to access it without the need of a password.
 ```
 docker context create remote ‐‐docker host=ssh://my-user@remote-host-ip
 docker-compose ‐‐context remote up -d
@@ -43,3 +43,4 @@ This commands create a context and use it to deploy to the remote server.
 - [Nginx](https://www.nginx.com/resources/glossary/nginx/)
 - [Docker Context](https://docs.docker.com/engine/context/working-with-contexts/)
 - [SSH](https://www.ssh.com/academy/ssh)
+- [SSH Passwordless Authentication](https://linuxize.com/post/how-to-setup-passwordless-ssh-login/)
