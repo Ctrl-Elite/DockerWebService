@@ -20,12 +20,26 @@ These commands will build and run the container in a detached mode(-d). If you w
 ```
 docker-compose down
 ```
-We can use the `DOCKER_HOST` and docker context to deploy this container to any remote machine(Using ssh).
+You can scale the project to use multiple instances using the following command,
+```
+docker-compose up -d --scale api=5
+```
+This will run 5 instances of the core api project.
+
+You can use the `DOCKER_HOST` and docker context to deploy this container to any remote machine(Using ssh).
+```
+docker-compose -H "ssh://my-user@remote-host-ip" up -d
+```
+This command will deploy the container to the provided remote server.
+```
+docker context create remote ‐‐docker host=ssh://my-user@remote-host-ip
+docker-compose ‐‐context remote up -d
+```
+This commands create a context and use it to deploy to the remote server.
 
 ## References
 - [Docker Official Docs](https://docs.docker.com/)
 - [Docker Compose](https://docs.docker.com/compose/)
 - [Nginx](https://www.nginx.com/resources/glossary/nginx/)
-- Additional References
-  - [Docker Context](https://docs.docker.com/engine/context/working-with-contexts/)
-  - [SSH](https://www.ssh.com/academy/ssh)
+- [Docker Context](https://docs.docker.com/engine/context/working-with-contexts/)
+- [SSH](https://www.ssh.com/academy/ssh)
