@@ -25,4 +25,4 @@ jobs:
 
       - name: Echo Tag Name
         run: |
-          echo "The job_id is: $github.ref_name"
+          echo "The job_id is: ${{ github.ref_name }}"
